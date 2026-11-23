@@ -33,8 +33,19 @@ jobs:
           pip install mkdocs-material mkdocs-glightbox mdx-truly-sane-lists jieba
 
       - name: Build static site
+        env:
+          NO_MKDOCS_2_WARNING: "1"
         run: |
-          mkdocs build -d /tmp/site
+          mkdir -p /tmp/mkdocs_build/docs
+          cp mkdocs.yml /tmp/mkdocs_build/mkdocs.yml
+          rsync -a \
+            --exclude='.git' \
+            --exclude='.github' \
+            --exclude='mkdocs.yml' \
+            --exclude='.gitignore' \
+            --exclude='README.md' \
+            ./ /tmp/mkdocs_build/docs/
+          mkdocs build -f /tmp/mkdocs_build/mkdocs.yml -d /tmp/site
           touch /tmp/site/.nojekyll
 
       - name: Setup Pages

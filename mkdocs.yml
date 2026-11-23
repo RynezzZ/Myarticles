@@ -4,16 +4,9 @@ site_url: https://rynezzz.github.io/Myarticles/
 repo_url: https://github.com/RynezzZ/Myarticles
 repo_name: RynezzZ/Myarticles
 
-docs_dir: .
-site_dir: ../_site
+docs_dir: docs
+site_dir: site
 use_directory_urls: true
-
-exclude_docs: |
-  mkdocs.yml
-  .gitignore
-  .git/
-  .github/
-  README.md
 
 theme:
   name: material
