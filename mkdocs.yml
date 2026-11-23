@@ -1,0 +1,73 @@
+site_name: Ryne's Security Research
+site_description: 恶意软件逆向分析、威胁狩猎与安全研究笔记
+site_url: https://rynezzz.github.io/Myarticles/
+repo_url: https://github.com/RynezzZ/Myarticles
+repo_name: RynezzZ/Myarticles
+
+docs_dir: .
+site_dir: ../_site
+use_directory_urls: true
+
+exclude_docs: |
+  mkdocs.yml
+  .gitignore
+  .git/
+  .github/
+  README.md
+
+theme:
+  name: material
+  language: zh
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: indigo
+      accent: teal
+      toggle:
+        icon: material/brightness-7
+        name: 切换深色模式
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: indigo
+      accent: teal
+      toggle:
+        icon: material/brightness-4
+        name: 切换浅色模式
+  features:
+    - navigation.instant
+    - navigation.tracking
+    - navigation.sections
+    - navigation.expand
+    - navigation.top
+    - navigation.indexes
+    - toc.follow
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+
+plugins:
+  - search:
+      lang:
+        - zh
+        - en
+  - glightbox:
+      touchNavigation: true
+      loop: false
+      effect: zoom
+      zoomable: true
+      draggable: true
+
+markdown_extensions:
+  - tables
+  - fenced_code
+  - admonition
+  - attr_list
+  - md_in_html
+  - mdx_truly_sane_lists
+  - toc:
+      permalink: true
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.superfences
+  - pymdownx.details
